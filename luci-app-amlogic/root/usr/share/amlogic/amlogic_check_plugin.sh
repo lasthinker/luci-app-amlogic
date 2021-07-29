@@ -23,7 +23,7 @@ tolog() {
 
     # 02. Check the version on the server
     tolog "02. Query server version information."
-    SERVER_PLUGIN_VERSION=$(curl -i -s "https://api.github.com/repos/ophub/luci-app-amlogic/releases" | grep "tag_name" | head -n 1 | grep -oE "[0-9]{1,3}.[0-9]{1,3}-[0-9]+")
+    SERVER_PLUGIN_VERSION=$(curl -i -s "https://api.github.com/repos/lasthinker/luci-app-amlogic/releases" | grep "tag_name" | head -n 1 | grep -oE "[0-9]{1,3}.[0-9]{1,3}-[0-9]+")
     [ -n "${SERVER_PLUGIN_VERSION}" ] || tolog "02.01 Failed to get the version on the server." "1"
     tolog "02.02 current version: ${CURRENT_PLUGIN_V}, Latest version: ${SERVER_PLUGIN_VERSION}"
     sleep 3
@@ -35,7 +35,7 @@ tolog() {
     else
         tolog "02.04 Automatically download the latest plugin."
 
-        SERVER_PLUGIN_URL="https://github.com/ophub/luci-app-amlogic/releases/download"
+        SERVER_PLUGIN_URL="https://github.com/lasthinker/luci-app-amlogic/releases/download"
         SERVER_PLUGIN_FILE_IPK="luci-app-amlogic_${SERVER_PLUGIN_VERSION}_all.ipk"
         SERVER_PLUGIN_FILE_I18N="luci-i18n-amlogic-zh-cn_${SERVER_PLUGIN_VERSION}_all.ipk"
         SERVER_PLUGIN_FILE_LIBFS="luci-lib-fs_1.0-1_all.ipk"

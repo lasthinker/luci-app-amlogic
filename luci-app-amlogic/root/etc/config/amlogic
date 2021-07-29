@@ -1,7 +1,7 @@
 
 config amlogic 'config'
 	option enable '1'
-	option amlogic_firmware_repo 'ophub/amlogic-s9xxx-openwrt'
+	option amlogic_firmware_repo 'lasthinker/amlogic-s9xxx-openwrt'
 	option amlogic_firmware_tag 's9xxx_lede'
 	option amlogic_firmware_suffix '.img.gz'
 	option amlogic_firmware_config '1'

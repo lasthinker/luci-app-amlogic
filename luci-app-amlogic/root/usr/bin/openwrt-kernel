@@ -276,7 +276,7 @@ replace_kernel() {
                 *)      die "Unknown SOC, unable to update to kernel 5.10 and above." ;;
             esac
 
-            GITHUB_RAW="https://raw.githubusercontent.com/ophub/amlogic-s9xxx-openwrt/main/amlogic-s9xxx"
+            GITHUB_RAW="https://raw.githubusercontent.com/lasthinker/amlogic-s9xxx-openwrt/main/amlogic-s9xxx"
 
             # Check ${UBOOT_OVERLOAD}
             if [[ -n "${UBOOT_OVERLOAD}" ]]; then

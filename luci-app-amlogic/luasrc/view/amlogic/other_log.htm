@@ -1,5 +1,5 @@
 <%+cbi/valueheader%>
-<textarea id="amlogic.ophub.clog" class="cbi-input-textarea" style="width: 100%;display:inline" data-update="change" rows="8" cols="60" readonly="readonly" > </textarea>
+<textarea id="amlogic.lasthinker.clog" class="cbi-input-textarea" style="width: 100%;display:inline" data-update="change" rows="8" cols="60" readonly="readonly" > </textarea>
 <fieldset class="cbi-section">
 	<table width="100%">
 		<tr>
@@ -35,7 +35,7 @@ function createAndDownloadFile(fileName, content) {
 }
 
 function download_log(){
-	var lv = document.getElementById('amlogic.ophub.clog');
+	var lv = document.getElementById('amlogic.lasthinker.clog');
 	var dt = new Date();
 	var timestamp = dt.getFullYear()+"-"+(dt.getMonth()+1)+"-"+dt.getDate()+"-"+dt.getHours()+"-"+dt.getMinutes()+"-"+dt.getSeconds();
 	createAndDownloadFile("Amlogic-"+timestamp+".log",lv.innerHTML)
@@ -44,7 +44,7 @@ function download_log(){
 
 function del_log() {
 	XHR.get('<%=luci.dispatcher.build_url("admin", "system", "amlogic", "del_log")%>',null,function(x, data){
-		var lv = document.getElementById('amlogic.ophub.clog');
+		var lv = document.getElementById('amlogic.lasthinker.clog');
 			lv.innerHTML="";
 		}
 	);
@@ -75,7 +75,7 @@ function line_tolocal(str){
 		}
 		else if (old_log_line - strt.length > 0) {
 			sessionStorage.log_line = strt.length;
-			var lv = document.getElementById('amlogic.ophub.clog');
+			var lv = document.getElementById('amlogic.lasthinker.clog');
 			lv.innerHTML = "";
 			return strt
 		}
@@ -94,7 +94,7 @@ function poll_log(){
 	XHR.get('<%=luci.dispatcher.build_url("admin", "system", "amlogic", "refresh_log")%>', null,
 	function(x, data) {
 		if ( x && x.status == 200 ) {
-			var lv = document.getElementById('amlogic.ophub.clog');
+			var lv = document.getElementById('amlogic.lasthinker.clog');
 			if (x.responseText && lv) {
 				var lines=line_tolocal(x.responseText);
 				if (lines != null) {

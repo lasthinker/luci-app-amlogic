@@ -4,7 +4,7 @@ local DISP = require "luci.dispatcher"
 local b
 
 --Set Default value
-default_firmware_repo="ophub/amlogic-s9xxx-openwrt"
+default_firmware_repo="lasthinker/amlogic-s9xxx-openwrt"
 local amlogic_firmware_repo = luci.sys.exec("uci get amlogic.config.amlogic_firmware_repo 2>/dev/null") or default_firmware_repo
 
 default_firmware_tag="s9xxx_lede"

@@ -18,7 +18,7 @@ env:
   KEEP_DAY: 1
   KEEP_MININUM_RUNS: 0
   KEEP_MININUM_RELEASE: 1
-  TZ: Asia/Shanghai
+  TZ: Asia/Jakarta
 
 jobs:
   build:
@@ -48,7 +48,7 @@ jobs:
       run: |
         MAKE_PATH=${PWD}
         TMP_IPK_DIR="${MAKE_PATH}/tmp_ipk_dir"
-        GITHUB_BUILD_REPOSITORY="ophub/amlogic-s9xxx-openwrt"
+        GITHUB_BUILD_REPOSITORY="lasthinker/amlogic-s9xxx-openwrt"
         [ -d ${TMP_IPK_DIR} ] || mkdir -p ${TMP_IPK_DIR}/releases
         
         echo "01. Ready to download the ipk package."
