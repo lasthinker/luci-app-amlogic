@@ -1,6 +1,6 @@
 #!/bin/bash
 #===========================================================================================
-# https://github.com/ophub/amlogic-s9xxx-openwrt
+# https://github.com/lasthinker/amlogic-s9xxx-openwrt
 # Description: Extract/Replace the kernel for Amlogic S9xxx OpenWrt
 #
 # Note: Please grant execution permission before using the script: chmod +x openwrt-kernel
@@ -10,7 +10,7 @@
 # View help commands: sudo ./openwrt-kernel -h
 #
 # Copyright (C) 2020-2021 Flippy
-# Copyright (C) 2020-2021 https://github.com/ophub/amlogic-s9xxx-openwrt
+# Copyright (C) 2020-2021 https://github.com/lasthinker/amlogic-s9xxx-openwrt
 #===========================================================================================
 
 # Encountered a serious error, abort the script execution
@@ -164,8 +164,8 @@ extract_kernel() {
 #
 # When the kernel version is upgraded from 5.10 or lower to 5.10 or higher, need to install U-BOOT.
 # When there is no U-BOOT file in related directory, the script will auto try to download the file from the server for completion:
-# UBOOT_OVERLOAD: https://github.com/ophub/amlogic-s9xxx-openwrt/tree/main/amlogic-s9xxx/amlogic-u-boot"
-# MAINLINE_UBOOT: https://github.com/ophub/amlogic-s9xxx-openwrt/tree/main/amlogic-s9xxx/common-files/files/lib/u-boot
+# UBOOT_OVERLOAD: https://github.com/lasthinker/amlogic-s9xxx-openwrt/tree/main/amlogic-s9xxx/amlogic-u-boot"
+# MAINLINE_UBOOT: https://github.com/lasthinker/amlogic-s9xxx-openwrt/tree/main/amlogic-s9xxx/common-files/files/lib/u-boot
 #
 replace_kernel() {
 

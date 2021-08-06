@@ -1,6 +1,6 @@
 #!/bin/bash
 #=================================================================================================================
-# https://github.com/ophub/luci-app-amlogic
+# https://github.com/lasthinker/luci-app-amlogic
 # Description: Support install OpenWrt to EMMC, update the OpenWrt firmware or kernel, and backup/restore config.
 #=================================================================================================================
 

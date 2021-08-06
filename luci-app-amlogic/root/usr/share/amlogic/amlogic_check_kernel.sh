@@ -29,11 +29,11 @@ SERVER_KERNEL_PATH=$(uci get amlogic.config.amlogic_kernel_path 2>/dev/null)
 #
 # Supported format:
 #
-# SERVER_FIRMWARE_URL="https://github.com/ophub/amlogic-s9xxx-openwrt"
-# SERVER_FIRMWARE_URL="ophub/amlogic-s9xxx-openwrt"
+# SERVER_FIRMWARE_URL="https://github.com/lasthinker/amlogic-s9xxx-openwrt"
+# SERVER_FIRMWARE_URL="lasthinker/amlogic-s9xxx-openwrt"
 #
-# SERVER_KERNEL_PATH="https://github.com/ophub/amlogic-s9xxx-openwrt/tree/main/amlogic-s9xxx/amlogic-kernel"
-# SERVER_KERNEL_PATH="https://github.com/ophub/amlogic-s9xxx-openwrt/trunk/amlogic-s9xxx/amlogic-kernel"
+# SERVER_KERNEL_PATH="https://github.com/lasthinker/amlogic-s9xxx-openwrt/tree/main/amlogic-s9xxx/amlogic-kernel"
+# SERVER_KERNEL_PATH="https://github.com/lasthinker/amlogic-s9xxx-openwrt/trunk/amlogic-s9xxx/amlogic-kernel"
 # SERVER_KERNEL_PATH="amlogic-s9xxx/amlogic-kernel"
 #
 if [[ ${SERVER_FIRMWARE_URL} == http* ]]; then

@@ -36,8 +36,8 @@ tolog() {
     [[ ! -z "${FIRMWARE_SUFFIX}" ]] || tolog "02.03 The custom firmware suffix is invalid." "1"
 
     # Supported format:
-    # SERVER_FIRMWARE_URL="https://github.com/ophub/amlogic-s9xxx-openwrt"
-    # SERVER_FIRMWARE_URL="ophub/amlogic-s9xxx-openwrt"
+    # SERVER_FIRMWARE_URL="https://github.com/lasthinker/amlogic-s9xxx-openwrt"
+    # SERVER_FIRMWARE_URL="lasthinker/amlogic-s9xxx-openwrt"
     if [[ ${SERVER_FIRMWARE_URL} == http* ]]; then
         SERVER_FIRMWARE_URL=${SERVER_FIRMWARE_URL#*com\/}
     fi
