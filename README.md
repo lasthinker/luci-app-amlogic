@@ -40,28 +40,28 @@ curl -fsSL git.io/luci-app-amlogic | bash
 
 ## Custom config / 自定义配置
 
-- Supports OpenWrt firmware packaged by [lasthinker](https://github.com/lasthinker/amlogic-s9xxx-openwrt) and [flippy](https://github.com/unifreq/openwrt_packit) related scripts. The online update file download url of `OpenWrt firmware` and `kernel` can be customized as your own github.com repository. An example of OpenWrt's github.com download URL: [lasthinker/amlogic-s9xxx-openwrt](https://github.com/lasthinker/amlogic-s9xxx-openwrt/releases), an example of a kernel download URL: [amlogic-s9xxx/amlogic -kernel](https://github.com/lasthinker/amlogic-s9xxx-openwrt/tree/main/amlogic-s9xxx/amlogic-kernel) . The config information is stored in the [/etc/config/amlogic](https://github.com/lasthinker/luci-app-amlogic/blob/main/luci-app-amlogic/root/etc/config/amlogic) file. When the OpenWrt firmware is compiled, you can directly modify the relevant values in this file to specify:
+- Supports OpenWrt firmware packaged by [lasthinker](https://github.com/lasthinker/amlogic-s9xxx-openwrt) and [flippy](https://github.com/unifreq/openwrt_packit) related scripts. The online update file download url of `OpenWrt firmware` and `kernel` can be customized as your own github.com repository. The config information is stored in the [/etc/config/amlogic](https://github.com/lasthinker/luci-app-amlogic/blob/main/luci-app-amlogic/root/etc/config/amlogic) file. When the OpenWrt firmware is compiled, you can directly modify the relevant values in this file to specify:
 
-- 支持 [lasthinker](https://github.com/lasthinker/amlogic-s9xxx-openwrt) 和 [flippy](https://github.com/unifreq/openwrt_packit) 相关脚本打包的 OpenWrt 固件。插件里 `在线下载更新` 中的 `OpenWrt 固件` 及 `内核` 文件的下载地址支持自定义为自己的 github.com 的仓库。其中 OpenWrt 的 github.com 下载地址举例： [lasthinker/amlogic-s9xxx-openwrt](https://github.com/lasthinker/amlogic-s9xxx-openwrt/releases) ，内核下载地址举例：[amlogic-s9xxx/amlogic-kernel](https://github.com/lasthinker/amlogic-s9xxx-openwrt/tree/main/amlogic-s9xxx/amlogic-kernel) 。配置信息保存在 [/etc/config/amlogic](https://github.com/lasthinker/luci-app-amlogic/blob/main/luci-app-amlogic/root/etc/config/amlogic) 文件中。OpenWrt 固件编译时可以直接修改这个文件里的相关值来进行指定：
+- 支持 [lasthinker](https://github.com/lasthinker/amlogic-s9xxx-openwrt) 和 [flippy](https://github.com/unifreq/openwrt_packit) 相关脚本打包的 OpenWrt 固件。插件里 `在线下载更新` 中的 `OpenWrt 固件` 及 `内核` 文件的下载地址支持自定义为自己的 github.com 的仓库。配置信息保存在 [/etc/config/amlogic](https://github.com/lasthinker/luci-app-amlogic/blob/main/luci-app-amlogic/root/etc/config/amlogic) 文件中。OpenWrt 固件编译时可以直接修改这个文件里的相关值来进行指定：
 
 
 ```shell
 # 1.Set the download repository of the OpenWrt files to your github.com （OpenWrt 文件的下载仓库）
-sed -i sed -i "s|https.*/amlogic-s9xxx-openwrt|https://github.com/USERNAME/REPOSITORY|g" package/luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|https.*/amlogic-s9xxx-openwrt|https://github.com/USERNAME/REPOSITORY|g" package/luci-app-amlogic/root/etc/config/amlogic
 
-# 2.Modify the keywords of Tags in your github.com Releases （Releases 里 Tags 的关键字）
+# 2.Set the keywords of Tags in your github.com Releases （Releases 里 Tags 的关键字）
 sed -i "s|s9xxx_lede|RELEASES_TAGS_KEYWORD|g" package/luci-app-amlogic/root/etc/config/amlogic
 
-# 3.Modify the suffix of the OPENWRT files in your github.com Releases （Releases 里 OpenWrt 文件的后缀）
+# 3.Set the suffix of the OPENWRT files in your github.com Releases （Releases 里 OpenWrt 文件的后缀）
 sed -i "s|.img.gz|.OPENWRT_SUFFIX|g" package/luci-app-amlogic/root/etc/config/amlogic
 
 # 4.Set the download path of the kernel in your github.com repository （OpenWrt 内核的下载路径）
-sed -i "s|http.*/library|https://github.com/USERNAME/REPOSITORY/KERNELPATH|g" package/luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|https.*/library|https://github.com/USERNAME/REPOSITORY/KERNELPATH|g" package/luci-app-amlogic/root/etc/config/amlogic
 ```
 
-- Tips: When compiling OpenWrt on github.com, modify the above 4 points to realize customization. The above information can also be modified in the settings of the plug-in after log in to the openwrt `System` → `Amlogic Service`.
+- Tips: When compiling OpenWrt, modify the above 4 points to realize customization. The above information can also be modified in the settings of the plug-in after log in to the openwrt `System` → `Amlogic Service`.
 
-- 提示：当你在 github.com 编译 OpenWrt 时，修改以上 4 点即可实现自定义。以上信息也可以登录 OpenWrt 系统后，在 `系统` → `晶晨宝盒` 的设置中修改。
+- 提示：当你在编译 OpenWrt 时，修改以上 4 点即可实现自定义。以上信息也可以登录 OpenWrt 系统后，在 `系统` → `晶晨宝盒` 的设置中修改。
 
 ## Plugin setup instructions / 插件设置说明
 
@@ -73,7 +73,7 @@ Plug-in settings 4 items: OpenWrt firmware download URL, kernel download URL, wh
 
 2. Keywords of Tags in Releases: to be able to distinguish other x86, R2S and other firmware, such as in [lasthinker/op/releases](https://github.com/lasthinker/op/releases) There are many firmwares for different routers, The OpenWrt firmware belonging to the Agmlgic series can be found by including the keyword `s9xxx_lede`.
 
-3. OpenWrt file suffix: the supported formats are `.img.gz` / `.img.xz` / `.7z` / `.zip`. But .img is not supported, because it is too large to download and slow.
+3. OpenWrt file suffix: the supported formats are `.img.gz` / `.img.xz` / `.7z`. But .img is not supported, because it is too large to download and slow.
 
 - The firmware file name should include the SOC standard name of the box to ensure that the corresponding firmware is accurately found. The supported SOCs are: `s905x3`, `s905x2`, `s905x`, `s905d`, `s912`, `s922x`
 
@@ -81,7 +81,7 @@ Plug-in settings 4 items: OpenWrt firmware download URL, kernel download URL, wh
 
 #### The download of the kernel contains an option
 
-- Download path of OpenWrt kernel: You can fill in the full path `https://github.com/lasthinker/amlogic-s9xxx-openwrt/tree/main/amlogic-s9xxx/amlogic-kernel`. If it is in the same repository as the OpenWrt firmware, the path can also be abbreviated `amlogic-s9xxx/amlogic-kernel`. It can also independently point to the kernel storage path in any repository  `https://github.com/lasthinker/flippy-kernel/tree/main/library`
+- Download path of OpenWrt kernel: You can fill in the full path `https://github.com/lasthinker/amlogic-s9xxx-openwrt/tree/main/amlogic-s9xxx/amlogic-kernel`. If it is in the same repository as the OpenWrt firmware, the path can also be abbreviated `amlogic-s9xxx/amlogic-kernel`. It can also independently point to the kernel storage path in any repository  `https://github.com/lasthinker/flippy-kernel/tree/main/library`. The kernel files can be stored in the specified path in the form of a folder or a list. It is recommended to use the kernel library path maintained for a long time by [breakings](https://github.com/breakings/OpenWrt/tree/main/opt/kernel).
 
 #### Other options
 
@@ -97,14 +97,14 @@ Plug-in settings 4 items: OpenWrt firmware download URL, kernel download URL, wh
 
 2. Releases 里 Tags 的关键字：要可以区分其他 x86，R2S 等固件，如在 [lasthinker/op/releases](https://github.com/lasthinker/op/releases) 里有很多不同路由器的固件，可以使用包含 `s9xxx_lede` 关键词找到属于 Agmlgic 系列的 OpenWrt 固件。
 
-3. OpenWrt 文件的后缀：支持的格式有 `.img.gz` / `.img.xz` / `.7z` / `.zip` 。但是不支持 .img，因为太大下载太慢。
+3. OpenWrt 文件的后缀：支持的格式有 `.img.gz` / `.img.xz` / `.7z` 。但是不支持 .img，因为太大下载太慢。
 - 固件文件名中要包含盒子的 SOC 标准名称，确保准确找到对应的固件，支持的 SOC 有：`s905x3`、`s905x2`、`s905x`、`s905d`、`s912`、`s922x`
 
 - 固件文件名中要包含内核版本系列名称，确保能准确找到对应的系列，支持的内核系列有 `5.4.xxx`、`5.10.xxx`、`5.12.xxx`、`5.13.xxx` 等。
 
 #### 内核的下载包含一个选项
 
-- OpenWrt 内核的下载路径：可以填写完整路径 `https://github.com/lasthinker/amlogic-s9xxx-openwrt/tree/main/amlogic-s9xxx/amlogic-kernel` 。如果和 OpenWrt 固件是同仓库的情况下，也可以简写路径 `amlogic-s9xxx/amlogic-kernel` 。也可以独立指向到任意仓库中内核存放路径 `https://github.com/lasthinker/flippy-kernel/tree/main/library`
+- OpenWrt 内核的下载路径：可以填写完整路径 `https://github.com/lasthinker/amlogic-s9xxx-openwrt/tree/main/amlogic-s9xxx/amlogic-kernel` 。如果和 OpenWrt 固件是同仓库的情况下，也可以简写路径 `amlogic-s9xxx/amlogic-kernel` 。也可以独立指向到任意仓库中内核存放路径 `https://github.com/lasthinker/flippy-kernel/tree/main/library`。内核文件支持以文件夹或列表的形式存储在指定的路径下。推荐使用由 [breakings](https://github.com/breakings/OpenWrt/tree/main/opt/kernel) 长期维护的内核库路径。
 
 #### 其他选项
 
