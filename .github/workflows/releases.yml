@@ -60,7 +60,6 @@ jobs:
             echo "02.01 Download the ipk.tar.gz file complete."
             sudo tar -xzf ${TMP_IPK_DIR}/${IPK_DOWNLOAD_NAME} -C ${TMP_IPK_DIR}/
             sudo mv -f ${TMP_IPK_DIR}/ipk/luci-app-amlogic_*.ipk ${TMP_IPK_DIR}/releases/
-            sudo mv -f ${TMP_IPK_DIR}/ipk/luci-i18n-amlogic-*.ipk ${TMP_IPK_DIR}/releases/
             sudo mv -f ${TMP_IPK_DIR}/ipk/luci-lib-fs_*.ipk ${TMP_IPK_DIR}/releases/
 
             IPK_VERSION_RELEASE=$( ls ${TMP_IPK_DIR}/releases/luci-app-amlogic* | grep -oE "[0-9]{1,3}.[0-9]{1,3}-[0-9]+" )
