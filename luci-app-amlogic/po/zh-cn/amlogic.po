@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: https://github.com/ophub/amlogic-s9xxx-openwrt \n"
+"Last-Translator: https://github.com/lasthinker/amlogic-s9xxx-openwrt \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -146,6 +146,9 @@ msgstr "斐讯-N1"
 msgid "HG680P & B860H"
 msgstr "烽火HG680 & 中兴B860H"
 
+msgid "X96-Mini & TX3-Mini"
+msgstr "X96-Mini & TX3-Mini"
+
 msgid "Or enter the dtb file name:"
 msgstr "或者输入自定义 dtb 文件名："
 
@@ -229,6 +232,9 @@ msgstr "S905x2 -- [ X96Max-4G, X96Max-2G ]"
 
 msgid "S905x --- [ HG680P, B860H ]"
 msgstr "S905x --- [ 烽火HG680 & 中兴B860H ]"
+
+msgid "S905w --- [ X96-Mini, TX3-Mini ]"
+msgstr "S905w --- [ X96-Mini, TX3-Mini ]"
 
 msgid "S912 ---- [ H96-Pro-Plus, Octopus-Planet ]"
 msgstr "S912 ---- [ H96-Pro-Plus, 章鱼星球 ]"
