@@ -1,7 +1,7 @@
 
 # luci-app-amlogic / Amlogic Service
 
-Supports management of Amlogic s9xxx, Allwinner (V-Plus Cloud), and Rockchip (BeikeYun, Chainedbox L1 Pro) boxes. The current functions include `install OpenWrt to EMMC`, `Manually Upload Updates / Download Updates Online to update the OpenWrt firmware or kernel`, `Backup / Restore firmware config`, `Snapshot management` and `Custom firmware / kernel download site`, etc.
+Supports management of Amlogic s9xxx boxes. The current functions include `install OpenWrt to EMMC`, `Manually Upload Updates / Download Updates Online to update the OpenWrt firmware or kernel`, `Backup / Restore firmware config`, `Snapshot management` and `Custom firmware / kernel download site`, etc.
 
 ## Depends
 
@@ -41,7 +41,7 @@ curl -fsSL git.io/luci-app-amlogic | bash
 sed -i "s|https.*/OpenWrt|https://github.com/USERNAME/REPOSITORY|g" package/luci-app-amlogic/root/etc/config/amlogic
 
 # 2.Set the keywords of Tags in your github.com Releases
-sed -i "s|ARMv8|RELEASES_TAGS_KEYWORD|g" package/luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|s9xxx_lede|RELEASES_TAGS_KEYWORD|g" package/luci-app-amlogic/root/etc/config/amlogic
 
 # 3.Set the suffix of the OPENWRT files in your github.com Releases
 sed -i "s|.img.gz|.OPENWRT_SUFFIX|g" package/luci-app-amlogic/root/etc/config/amlogic
@@ -58,13 +58,13 @@ Plug-in settings 4 items: OpenWrt firmware download URL, kernel download URL, wh
 
 #### The firmware download contains three options
 
-1. OpenWrt firmware download address: Fill in the repository of your OpenWrt compilation on github (or other compiler's repository), such as `https://github.com/breakings/OpenWrt`. The first button of the plug-in welcome homepage `OpenWrt Author website` will link to the website filled in here (Automatically update the link according to the filled website), so that everyone can find the author of the firmware for communication and learning.
+1. OpenWrt firmware download address: Fill in the repository of your OpenWrt compilation on github (or other compiler's repository), such as `https://github.com/lasthinker/amlogic-s9xxx-openwrt`. The first button of the plug-in welcome homepage `OpenWrt Author website` will link to the website filled in here (Automatically update the link according to the filled website), so that everyone can find the author of the firmware for communication and learning.
 
-2. Keywords of Tags in Releases: to be able to distinguish other x86, R2S and other firmware, such as in [lasthinker/op/releases](https://github.com/lasthinker/amlogic-s9xxx-openwrt/releases) There are many firmwares for different routers, The OpenWrt firmware belonging to the Agmlgic series can be found by including the keyword `s9xxx_lede`.
+2. Keywords of Tags in Releases: to be able to distinguish other amlogic firmware, such as in [ophub/amlogic-s9xxx-openwrt/releases](https://github.com/ophub/amlogic-s9xxx-openwrt/releases) There are many firmwares for different routers, The OpenWrt firmware belonging to the Amlogic series can be found by including the keyword `s9xxx_lede`.
 
 3. OpenWrt file suffix: the supported formats are `.img.gz` / `.img.xz` / `.7z`. But .img is not supported, because it is too large to download and slow.
 
-- When naming the `OpenWrt` firmware in Releases, please include `SOC model` and `kernel version` : openwrt_ `{soc}`_ xxx_`{kernel}`_ xxx.img.gz, for example: openwrt_ `s905d`_ n1_R21.8.6_k`5.4.138`-flippy-62+o.7z. The supported `SOC` are: `s905x3`, `s905x2`, `s905x`, `s905w`, `s905d`, `s922x`, `s912`, `l1pro`, `beikeyun`, `vplus`. The supported `kernel version` are `5.4.xxx`, `5.10.xxx`, `5.12.xxx`, `5.13.xxx`, etc.
+- When naming the `OpenWrt` firmware in Releases, please include `SOC model` and `kernel version` : openwrt_ `{soc}`_ xxx_`{kernel}`_ xxx.img.gz, for example: openwrt_ `s905x`_R21.8.6_k`5.4.138`-flippy-62+o.7z. The supported `SOC` are: `s905x3`, `s905x2`, `s905x`, `s905w`, `s905d`, `s922x`, `s912`. The supported `kernel version` are `5.4.xxx`, `5.10.xxx`, `5.12.xxx`, `5.13.xxx`, etc.
 
 #### The download of the kernel contains an option
 
@@ -78,7 +78,7 @@ Plug-in settings 4 items: OpenWrt firmware download URL, kernel download URL, wh
 
 #### Description of default settings
 
-- The default [OpenWrt](https://github.com/breakings/OpenWrt/releases/tag/ARMv8) firmware and [kernel](https://github.com/breakings/OpenWrt/tree/main/opt/kernel) download service of the plug-in is supported by `breakings`. He is an active and enthusiastic manager of the Flippy community, familiar with OpenWrt compilation, and familiar with the installation and use of various boxes supported by `Flippy`, Recommended Use.
+- The default [OpenWrt](https://github.com/ophub/amlogic-s9xxx-openwrt/tags/s9xxx) firmware and [kernel](https://github.com/ophub/flippy-kernel/tree/main/library) download service of the plug-in is supported by `Ophub`. He is an active and enthusiastic manager of the Flippy community, familiar with OpenWrt compilation, and familiar with the installation and use of various boxes supported by `Flippy`, Recommended Use.
 
 ## Screenshot
 
@@ -97,7 +97,7 @@ Plug-in settings 4 items: OpenWrt firmware download URL, kernel download URL, wh
 - [Lienol/openwrt](https://github.com/Lienol/openwrt)
 - [unifreq/openwrt_packit](https://github.com/unifreq/openwrt_packit)
 - [breakings/OpenWrt](https://github.com/breakings/OpenWrt)
-- [OPHUB](https://github.com/ophub)
+- [Ophub](https://github.com/ophub)
 
 ## License
 - [LICENSE](https://github.com/lasthinker/luci-app-amlogic/blob/main/LICENSE) © lasthinker
