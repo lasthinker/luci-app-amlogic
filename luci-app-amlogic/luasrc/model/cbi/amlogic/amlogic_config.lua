@@ -25,7 +25,7 @@ local amlogic_write_bootloader = luci.sys.exec("uci get amlogic.config.amlogic_w
 --SimpleForm for Config Source
 b = SimpleForm("amlogic_check", translate("Plugin Settings"), nil)
 local des_content = translate("You can customize the github.com download repository of OpenWrt files and kernels in [Online Download Update].")
-local des_content = des_content .. "<br />" .. translate("Tips: The amlogic SoC (E.g: s905d) and mainline version of the kernel (E.g: 5.13) will automatically match the current openwrt firmware.")
+local des_content = des_content .. "<br />" .. translate("Tips: The amlogic SoC (E.g: s905x) and mainline version of the kernel (E.g: 5.13) will automatically match the current openwrt firmware.")
 b.description = des_content
 b.reset = false
 b.submit = false

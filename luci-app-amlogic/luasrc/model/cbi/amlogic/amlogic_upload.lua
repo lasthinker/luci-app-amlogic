@@ -72,15 +72,15 @@ for i, f in ipairs(fs.glob("/tmp/upload/*")) do
         inits[i].ipk = false
 
         --Check whether the openwrt firmware file
-        -- openwrt_s905d_v5.10.16_2021.05.31.1958.img.gz
+        -- openwrt_s905x_v5.10.16_2021.05.31.1958.img.gz
         if (string.lower(string.sub(fs.basename(f), -7, -1)) == ".img.gz") then
             openwrt_firmware_file = true
         end
-        -- openwrt_s905d_n1_R21.7.15_k5.4.134-flippy-62+o.img.xz
+        -- openwrt_s905x_n1_R21.7.15_k5.4.134-flippy-62+o.img.xz
         if (string.lower(string.sub(fs.basename(f), -7, -1)) == ".img.xz") then
             openwrt_firmware_file = true
         end
-        -- openwrt_s905d_n1_R21.7.15_k5.13.2-flippy-62+.7z
+        -- openwrt_s905x_n1_R21.7.15_k5.13.2-flippy-62+.7z
         if (string.lower(string.sub(fs.basename(f), -3, -1)) == ".7z") then
             openwrt_firmware_file = true
         end

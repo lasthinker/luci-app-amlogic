@@ -37,15 +37,15 @@ local tmp_upload_dir = luci.sys.exec("[ -d /tmp/upload ] || mkdir -p /tmp/upload
 local tmp_amlogic_dir = luci.sys.exec("[ -d /tmp/amlogic ] || mkdir -p /tmp/amlogic >/dev/null")
 local amlogic_firmware_config = luci.sys.exec("uci get amlogic.config.amlogic_firmware_config 2>/dev/null") or "1"
 if tonumber(amlogic_firmware_config) == 0 then
-    update_restore_config = "NO-RESTORE"
+    update_restore_config = "no-restore"
 else
-    update_restore_config = "RESTORE"
+    update_restore_config = "restore"
 end
 local amlogic_write_bootloader = luci.sys.exec("uci get amlogic.config.amlogic_write_bootloader 2>/dev/null") or "1"
 if tonumber(amlogic_write_bootloader) == 0 then
-    auto_write_bootloader = "NO"
+    auto_write_bootloader = "no"
 else
-    auto_write_bootloader = "YES"
+    auto_write_bootloader = "yes"
 end
 
 function string.split(input, delimiter)
@@ -138,7 +138,7 @@ function action_check_plugin()
     return luci.sys.call("/usr/share/amlogic/amlogic_check_plugin.sh >/dev/null 2>&1")
 end
 
-function check_plugin()
+function check_kernel()
     luci.sys.exec("chmod +x /usr/share/amlogic/amlogic_check_kernel.sh >/dev/null 2>&1")
     local kernel_options = luci.http.formvalue("kernel_options")
     if kernel_options == "check" then
@@ -152,7 +152,7 @@ end
 function action_check_kernel()
     luci.http.prepare_content("application/json")
     luci.http.write_json({
-        check_kernel_status = check_plugin();
+        check_kernel_status = check_kernel();
     })
 end
 
