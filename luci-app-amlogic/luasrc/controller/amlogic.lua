@@ -58,6 +58,10 @@ end
 --Device identification
 mydevice_logs = luci.sys.exec("cat /proc/device-tree/model 2>/dev/null > /tmp/amlogic/amlogic_mydevice_name.log && sync")
 mydevice_name = luci.sys.exec("cat /proc/device-tree/model 2>/dev/null") or "Unknown device"
+if tonumber(string.find(mydevice_name, "Amlogic Meson GXL (S905X) P212 Development Board")) == 1 then
+    device_install_script = "openwrt-install"
+    device_update_script = "openwrt-update"
+    device_kernel_script = "openwrt-kernel"
 else
     device_install_script = "openwrt-install"
     device_update_script = "openwrt-update"
