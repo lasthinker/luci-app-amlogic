@@ -17,7 +17,7 @@ tolog() {
 }
 
 # Current device model
-MYDEVICE_NAME=$(cat /proc/device-tree/model 2>/dev/null)
+MYDEVICE_NAME=$(cat /proc/device-tree/model | tr -d '\000')
 if [ -z "${MYDEVICE_NAME}" ]; then
     tolog "Unknown device" "1"
 #elif [ "${MYDEVICE_NAME}" == "Amlogic Meson GXL (S905X) P212 Development Board" ]; then
