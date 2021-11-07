@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Set a fixed value
-check_option=${1}
-download_version=${2}
+check_option="${1}"
+download_version="${2}"
 TMP_CHECK_DIR="/tmp/amlogic"
 AMLOGIC_SOC_FILE="/etc/flippy-openwrt-release"
 START_LOG="${TMP_CHECK_DIR}/amlogic_check_firmware.log"
@@ -70,7 +70,12 @@ main_line_version="${main_line_ver}.${main_line_maj}"
 
 # 01.02. Query the selected branch in the settings
 server_kernel_branch=$(uci get amlogic.config.amlogic_kernel_branch 2>/dev/null | grep -oE '^[1-9].[0-9]{1,3}')
-if [[ -n "${server_kernel_branch}" && "${server_kernel_branch}" != "${main_line_version}" ]]; then
+if [ -z "${server_kernel_branch}" ]; then
+    server_kernel_branch="${main_line_version}"
+    uci set amlogic.config.amlogic_kernel_branch="${main_line_version}" 2>/dev/null
+    uci commit amlogic 2>/dev/null
+fi
+if [[ "${server_kernel_branch}" != "${main_line_version}" ]]; then
     main_line_version="${server_kernel_branch}"
     tolog "01.02 Select branch: ${main_line_version}"
     sleep 2
@@ -96,8 +101,6 @@ rm -f ${FIRMWARE_DOWNLOAD_PATH}/*${firmware_suffix} 2>/dev/null && sync
 rm -f ${FIRMWARE_DOWNLOAD_PATH}/*.img 2>/dev/null && sync
 
 firmware_download_url="https:.*${releases_tag_keywords}.*${SOC}.*${main_line_version}.*${firmware_suffix}"
-curl -s "https://api.github.com/repos/${server_firmware_url}/releases" > ${github_api_openwrt} && sync
-sleep 1
 
 # 02. Check Updated
 check_updated() {
@@ -153,7 +156,7 @@ download_firmware() {
     else
         tolog "03.02 Invalid firmware download." "1"
     fi
-    sleep 3
+    sleep 2
 
     # Delete temporary files
     rm -f ${github_api_openwrt} 2>/dev/null && sync
