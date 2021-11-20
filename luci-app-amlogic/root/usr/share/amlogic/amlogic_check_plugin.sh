@@ -12,24 +12,27 @@ rm -f ${TMP_CHECK_DIR}/*.ipk 2>/dev/null && sync
 
 # Find the partition where root is located
 ROOT_PTNAME=$(df / | tail -n1 | awk '{print $1}' | awk -F '/' '{print $3}')
-if [ "${ROOT_PTNAME}" == "" ];then
+if [ "${ROOT_PTNAME}" == "" ]; then
     echo "Cannot find the partition corresponding to the root file system!"
     exit 1
 fi
 
 # Find the disk where the partition is located, only supports mmcblk?p? sd?? hd?? vd?? and other formats
 case ${ROOT_PTNAME} in
-       mmcblk?p[1-4]) EMMC_NAME=$(echo ${ROOT_PTNAME} | awk '{print substr($1, 1, length($1)-2)}')
-                      PARTITION_NAME="p"
-                      LB_PRE="EMMC_"
-                      ;;
-    [hsv]d[a-z][1-4]) EMMC_NAME=$(echo ${ROOT_PTNAME} | awk '{print substr($1, 1, length($1)-1)}')
-                      PARTITION_NAME=""
-                      LB_PRE=""
-                      ;;
-                   *) echo "Unable to recognize the disk type of ${ROOT_PTNAME}!"
-                      exit 1
-                      ;;
+mmcblk?p[1-4])
+    EMMC_NAME=$(echo ${ROOT_PTNAME} | awk '{print substr($1, 1, length($1)-2)}')
+    PARTITION_NAME="p"
+    LB_PRE="EMMC_"
+    ;;
+[hsv]d[a-z][1-4])
+    EMMC_NAME=$(echo ${ROOT_PTNAME} | awk '{print substr($1, 1, length($1)-1)}')
+    PARTITION_NAME=""
+    LB_PRE=""
+    ;;
+*)
+    echo "Unable to recognize the disk type of ${ROOT_PTNAME}!"
+    exit 1
+    ;;
 esac
 
 # Log function
@@ -63,10 +66,10 @@ sleep 2
 # 02. Check the version on the server
 tolog "02. Query server version information."
 
-curl -s "https://api.github.com/repos/lasthinker/luci-app-amlogic/releases" > ${github_api_plugin} && sync
+curl -s "https://api.github.com/repos/lasthinker/luci-app-amlogic/releases" >${github_api_plugin} && sync
 sleep 1
 
-server_plugin_version=$( cat ${github_api_plugin} | grep "tag_name"  | awk -F '"' '{print $4}' | tr " " "\n" | sort -rV | head -n 1 )
+server_plugin_version=$(cat ${github_api_plugin} | grep "tag_name" | awk -F '"' '{print $4}' | tr " " "\n" | sort -rV | head -n 1)
 [ -n "${server_plugin_version}" ] || tolog "02.01 Failed to get the version on the server." "1"
 tolog "02.01 current version: ${current_plugin_v}, Latest version: ${server_plugin_version}"
 sleep 2
@@ -79,8 +82,8 @@ else
     tolog "02.03 Check the latest plug-in download address."
 
     server_plugin_url="https://github.com/lasthinker/luci-app-amlogic/releases/download"
-    server_plugin_file_ipk="$( cat ${github_api_plugin} | grep -E "browser_.*${server_plugin_version}.*" | grep -oE "luci-app-amlogic_.*.ipk" | head -n 1 )"
-    server_plugin_file_libfs="$( cat ${github_api_plugin} | grep -E "browser_.*${server_plugin_version}.*" | grep -oE "luci-lib-fs_.*.ipk" | head -n 1 )"
+    server_plugin_file_ipk="$(cat ${github_api_plugin} | grep -E "browser_.*${server_plugin_version}.*" | grep -oE "luci-app-amlogic_.*.ipk" | head -n 1)"
+    server_plugin_file_libfs="$(cat ${github_api_plugin} | grep -E "browser_.*${server_plugin_version}.*" | grep -oE "luci-lib-fs_.*.ipk" | head -n 1)"
 
     if [[ -n "${server_plugin_file_ipk}" && -n "${server_plugin_file_libfs}" ]]; then
         tolog "02.04 Start downloading the latest plugin..."
@@ -117,4 +120,3 @@ rm -f ${github_api_plugin} 2>/dev/null && sync
 tolog '<input type="button" class="cbi-button cbi-button-reload" value="Update" onclick="return amlogic_plugin(this)"/> Latest version: '${server_plugin_version}''
 
 exit 0
-
