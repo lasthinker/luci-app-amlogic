@@ -14,7 +14,7 @@
 
 # Set a fixed value
 TMP_CHECK_DIR="/tmp/amlogic"
-AMLOGIC_SOC_FILE="/etc/flippy-openwrt-release"
+AMLOGIC_SOC_FILE="/etc/lasthinker-openwrt-release"
 START_LOG="${TMP_CHECK_DIR}/amlogic_check_plugin.log"
 RUNNING_LOG="${TMP_CHECK_DIR}/amlogic_running_script.log"
 LOG_FILE="${TMP_CHECK_DIR}/amlogic.log"

@@ -103,29 +103,29 @@ for i, f in ipairs(fs.glob(trim(upload_path .. "*"))) do
 		if (string.lower(string.sub(fs.basename(f), -7, -1)) == ".img.gz") then
 			openwrt_firmware_file = true
 		end
-		-- openwrt_s905x_R21.7.15_k5.4.134-flippy-62+o.img.xz
+		-- openwrt_s905x_R21.7.15_k5.4.134-lasthinker-62+o.img.xz
 		if (string.lower(string.sub(fs.basename(f), -7, -1)) == ".img.xz") then
 			openwrt_firmware_file = true
 		end
-		-- openwrt_s905x_R21.7.15_k5.13.2-flippy-62+.7z
+		-- openwrt_s905x_R21.7.15_k5.13.2-lasthinker-62+.7z
 		if (string.lower(string.sub(fs.basename(f), -3, -1)) == ".7z") then
 			openwrt_firmware_file = true
 		end
-		-- openwrt_s905d_n1_R21.7.15_k5.13.2-flippy-62+.img
+		-- openwrt_s905d_n1_R21.7.15_k5.13.2-lasthinker-62+.img
 		if (string.lower(string.sub(fs.basename(f), -4, -1)) == ".img") then
 			openwrt_firmware_file = true
 		end
 
 		--Check whether the three kernel files
-		-- boot-5.10.16-flippy-53+.tar.gz
+		-- boot-5.10.16-lasthinker-53+.tar.gz
 		if (string.lower(string.sub(fs.basename(f), 1, 5)) == "boot-") then
 			boot_file = true
 		end
-		-- dtb-amlogic-5.10.16-flippy-53+.tar.gz
+		-- dtb-amlogic-5.10.16-lasthinker-53+.tar.gz
 		if (string.lower(string.sub(fs.basename(f), 1, 4)) == "dtb-") then
 			dtb_file = true
 		end
-		-- modules-5.10.16-flippy-53+.tar.gz
+		-- modules-5.10.16-lasthinker-53+.tar.gz
 		if (string.lower(string.sub(fs.basename(f), 1, 8)) == "modules-") then
 			modules_file = true
 		end
