@@ -4,15 +4,11 @@
 # warranty of any kind, whether express or implied.
 #
 # This file is a part of the luci-app-amlogic plugin
-# https://github.com/lasthinker/luci-app-amlogic
 #
 # Description: Support install/update/backup/restore/snapshot etc for OpenWrt on amlogic s9xxx boxs
-# Copyright (C) 2021- The Upload file functions by luci-app-filetransfer
-# Copyright (C) 2021- The CPU Settings functions by luci-app-cpufreq
-# Copyright (C) 2021- The Log viewing and version query functions by Vernesong
-# Copyright (C) 2021- The Kernel and scripts etc by unifreq
-# Copyright (C) 2021- https://github.com/unifreq/openwrt_packit
+#
 # Copyright (C) 2021- https://github.com/lasthinker/luci-app-amlogic
+#
 #===================================================================================================
 
 include $(TOPDIR)/rules.mk

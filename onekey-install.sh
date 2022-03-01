@@ -8,7 +8,7 @@
 # https://github.com/lasthinker/luci-app-amlogic
 #
 # Description: Install luci-app-amlogic plugin for OpenWrt on amlogic s9xxx boxs
-# Copyright (C) 2021- https://github.com/unifreq/openwrt_packit
+#
 # Copyright (C) 2021- https://github.com/lasthinker/luci-app-amlogic
 #
 # Command: curl -fsSL git.io/luci-app-amlogic | bash

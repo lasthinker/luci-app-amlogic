@@ -5,11 +5,11 @@
 # warranty of any kind, whether express or implied.
 #
 # This file is a part of the luci-app-amlogic plugin
-# https://github.com/lasthinker/luci-app-amlogic
 #
 # Description: Check and update OpenWrt firmware
-# Copyright (C) 2021- https://github.com/unifreq/openwrt_packit
+#
 # Copyright (C) 2021- https://github.com/lasthinker/luci-app-amlogic
+#
 #==================================================================
 
 # Set a fixed value
