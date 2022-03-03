@@ -5,7 +5,7 @@
 #
 # This file is a part of the luci-app-amlogic plugin
 #
-# Description: Support install/update/backup/restore/snapshot etc for OpenWrt on amlogic s9xxx boxs
+# Description: Support install/update/backup/restore/snapshot etc for OpenWrt on Amlogic S905X
 #
 # Copyright (C) 2021- https://github.com/lasthinker/luci-app-amlogic
 #
@@ -14,7 +14,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=luci-app-amlogic
-PKG_VERSION:=3.1.68
+PKG_VERSION:=3.1.69
 PKG_RELEASE:=1
 
 PKG_LICENSE:=GPL-2.0 License
