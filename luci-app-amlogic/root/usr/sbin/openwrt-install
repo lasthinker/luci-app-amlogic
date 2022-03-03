@@ -1,6 +1,6 @@
 #!/bin/bash
 #======================================================================================
-# Function: Install OpenWrt to emmc for Amlogic S9xxx STB
+# Function: Install OpenWrt to emmc for Amlogic S905X
 # Copyright (C) 2020-2021 Lasthinker
 # Copyright (C) 2020-2021 https://github.com/lasthinker/amlogic-s9xxx-openwrt
 #======================================================================================
@@ -305,7 +305,7 @@ ROOT2=960
 if [[ "${AMLOGIC_SOC}" == "s912" || "${AMLOGIC_SOC}" == "s905d" ]]; then
     BOOT=512
     BLANK1=68
-    BLANK2=188
+    BLANK2=220
     BLANK3=0
     BLANK4=0
 elif [[ "${AMLOGIC_SOC}" == "s905x" ]]; then
