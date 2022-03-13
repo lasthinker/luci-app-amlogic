@@ -165,7 +165,7 @@ function start_amlogic_update()
 	local update_firmware_name = res[1] or "auto"
 	local update_firmware_updated = res[2] or "updated"
 	local update_write_path = res[3] or "/tmp"
-	luci.sys.call("echo " .. update_firmware_updated .. " > " .. update_write_path .. "/.luci-app-amlogic/op_release_code 2>/dev/null && sync")
+	luci.sys.call("echo " .. update_firmware_updated .. " > " .. update_write_path .. "/.luci-app-amlogic/lasthinker_release_code 2>/dev/null && sync")
 	local state = luci.sys.call("/usr/sbin/" .. device_update_script .. " " .. update_firmware_name .. " " .. auto_write_bootloader .. " " .. update_restore_config .. " > /tmp/amlogic/amlogic_check_firmware.log && sync 2>/dev/null")
 	return state
 end

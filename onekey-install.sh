@@ -7,7 +7,7 @@
 # This file is a part of the luci-app-amlogic plugin
 # https://github.com/lasthinker/luci-app-amlogic
 #
-# Description: Install luci-app-amlogic plugin for OpenWrt on amlogic s9xxx boxs
+# Description: Install luci-app-amlogic plugin for OpenWrt on Amlogic S905X
 #
 # Copyright (C) 2021- https://github.com/lasthinker/luci-app-amlogic
 #

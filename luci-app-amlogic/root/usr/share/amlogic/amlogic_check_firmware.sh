@@ -161,9 +161,9 @@ check_updated() {
     # return: api_openwrt_download_line: 123
 
     # Check the firmware update code
-    op_release_code="${FIRMWARE_DOWNLOAD_PATH}/.luci-app-amlogic/op_release_code"
-    if [ -f "${op_release_code}" ]; then
-        update_check_code="$(cat ${op_release_code} | xargs)"
+    lasthinker_release_code="${FIRMWARE_DOWNLOAD_PATH}/.luci-app-amlogic/lasthinker_release_code"
+    if [ -f "${lasthinker_release_code}" ]; then
+        update_check_code="$(cat ${lasthinker_release_code} | xargs)"
         if [[ -n "${update_check_code}" && "${update_check_code}" == "${latest_updated_at}" ]]; then
             tolog "02.01 Already the latest version, no need to update." "1"
         fi
