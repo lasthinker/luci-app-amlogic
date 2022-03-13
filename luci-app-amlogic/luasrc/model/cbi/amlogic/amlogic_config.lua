@@ -36,7 +36,7 @@ firmware_repo.rmempty = false
 --3.Set OpenWrt Releases's Tag Keywords
 firmware_tag = o:option(Value, "amlogic_firmware_tag", translate("Keywords of Tags in Releases:"))
 firmware_tag.description = translate("Set the keywords of Tags in Releases of github.com in [Online Download Update].")
-firmware_tag.default = "s9xxx_lede"
+firmware_tag.default = "s9xxx_lasthinker"
 firmware_tag.rmempty = false
 
 --4.Set OpenWrt Firmware Suffix
