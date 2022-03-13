@@ -52,6 +52,7 @@ BACKUP_LIST='./etc/AdGuardHome.yaml \
 ./etc/ipsec.secrets \
 ./etc/ipsec.user \
 ./etc/ipset/ \
+./etc/modprobe.d/rtl8188fu.conf \
 ./etc/mosdns/config.yaml \
 ./etc/mwan3.user \
 ./etc/nginx/nginx.conf \
@@ -67,6 +68,7 @@ BACKUP_LIST='./etc/AdGuardHome.yaml \
 ./etc/ssh/*key*  \
 ./etc/ssl/private/  \
 ./etc/ssrplus/ \
+./etc/sysctl.d/13-custom.conf \
 ./etc/sysupgrade.conf \
 ./etc/transmission/ \
 ./etc/uhttpd.crt \
@@ -78,7 +80,7 @@ BACKUP_LIST='./etc/AdGuardHome.yaml \
 if uname -a | grep 'lasthinker' >/dev/null 2>&1; then
     PLATFORM="amlogic"
 else
-    echo "Unknown platform, only support amlogic!"
+    echo "Unknown platform, only support Amlogic with lasthinker kernel!"
     exit 1
 fi
 
