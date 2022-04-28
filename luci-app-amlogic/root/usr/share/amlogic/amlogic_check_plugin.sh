@@ -110,9 +110,8 @@ else
 
     server_plugin_url="https://github.com/lasthinker/luci-app-amlogic/releases/download"
     server_plugin_file_ipk="$(cat ${github_api_plugin} | grep -E "browser_.*${server_plugin_version}.*" | grep -oE "luci-app-amlogic_.*.ipk" | head -n 1)"
-    server_plugin_file_libfs="$(cat ${github_api_plugin} | grep -E "browser_.*${server_plugin_version}.*" | grep -oE "luci-lib-fs_.*.ipk" | head -n 1)"
 
-    if [[ -n "${server_plugin_file_ipk}" && -n "${server_plugin_file_libfs}" ]]; then
+    if [[ -n "${server_plugin_file_ipk}" ]]; then
         tolog "02.04 Start downloading the latest plugin..."
     else
         tolog "02.04 No available plugins found!" "1"
@@ -124,15 +123,6 @@ else
         tolog "02.05 ${server_plugin_file_ipk} complete."
     else
         tolog "02.05 The plugin file failed to download." "1"
-    fi
-    sleep 2
-
-    # Download plugin lib-fs file
-    wget -c "${server_plugin_url}/${server_plugin_version}/${server_plugin_file_libfs}" -O "${TMP_CHECK_DIR}/${server_plugin_file_libfs}" >/dev/null 2>&1 && sync
-    if [[ "$?" -eq "0" && -s "${TMP_CHECK_DIR}/${server_plugin_file_libfs}" ]]; then
-        tolog "02.06 ${server_plugin_file_libfs} complete."
-    else
-        tolog "02.06 The plugin lib-fs failed to download." "1"
     fi
     sleep 2
 fi
