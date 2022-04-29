@@ -9,12 +9,13 @@
 #
 # Copyright (C) 2021- https://github.com/lasthinker/luci-app-amlogic
 #
+# Command: curl -fsSL git.io/luci-app-amlogic | bash
 #===================================================================================================
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=luci-app-amlogic
-PKG_VERSION:=3.1.89
+PKG_VERSION:=3.1.92
 PKG_RELEASE:=1
 
 PKG_LICENSE:=GPL-2.0 License
