@@ -1,6 +1,6 @@
 #!/bin/bash
 #======================================================================================
-# Function: Update OpenWrt to emmc for Amlogic S905X
+# Function: Update OpenWrt to eMMC for Amlogic
 # Copyright (C) 2020-2021 Lasthinker
 # Copyright (C) 2020-2021 https://github.com/lasthinker/amlogic-s9xxx-openwrt
 #======================================================================================
