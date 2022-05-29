@@ -76,15 +76,12 @@ else
 end
 
 --Device identification
-mydevice_logs = luci.sys.exec("cat /proc/device-tree/model | tr -d \'\\000\' > /tmp/amlogic/amlogic_mydevice_name.log && sync")
-mydevice_name = luci.sys.exec("cat /proc/device-tree/model | tr -d \'\\000\'") or "Unknown device"
-if tonumber(string.find(mydevice_name, "Amlogic Meson GXL (S905X) P212 Development Board")) == 1 then
+device_platfrom = trim(luci.sys.exec("cat /etc/lasthinker-openwrt-release 2>/dev/null | grep PLATFORM | awk -F'=' '{print $2}' | grep -oE '(amlogic)'")) or "Unknown PLATFORM"
+if (device_platfrom == "amlogic") then
 	device_install_script = "openwrt-install"
+elseif (device_platfrom == "amlogic") then
 	device_update_script = "openwrt-update"
-	device_kernel_script = "openwrt-kernel"
 else
-	device_install_script = "openwrt-install"
-	device_update_script = "openwrt-update"
 	device_kernel_script = "openwrt-kernel"
 end
 

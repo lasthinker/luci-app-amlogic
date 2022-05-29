@@ -48,7 +48,7 @@ else
 fi
 
 # Download plugin ipk file
-wget -c "${server_plugin_url}/${server_plugin_version}/${server_plugin_file_ipk}" -O "${TMP_CHECK_DIR}/${server_plugin_file_ipk}" >/dev/null 2>&1 && sync
+wget "${server_plugin_url}/${server_plugin_version}/${server_plugin_file_ipk}" -O "${TMP_CHECK_DIR}/${server_plugin_file_ipk}" >/dev/null 2>&1 && sync
 if [[ "$?" -eq "0" && -s "${TMP_CHECK_DIR}/${server_plugin_file_ipk}" ]]; then
     tolog "02.02 ${server_plugin_file_ipk} complete."
 else
