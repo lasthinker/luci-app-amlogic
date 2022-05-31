@@ -29,6 +29,7 @@ BACKUP_LIST='./etc/AdGuardHome.yaml \
 ./etc/openclash/game_rules/ \
 ./etc/openclash/rule_provider/ \
 ./etc/openclash/proxy_provider/ \
+./etc/dnscrypt-proxy2/blocked-ips.txt \
 ./etc/dnscrypt-proxy2/blocked-names.txt \
 ./etc/dnscrypt-proxy2/dnscrypt-proxy.toml \
 ./etc/dnsforwarder/ \
@@ -52,6 +53,7 @@ BACKUP_LIST='./etc/AdGuardHome.yaml \
 ./etc/ipsec.secrets \
 ./etc/ipsec.user \
 ./etc/ipset/ \
+./etc/modprobe.d/r8188eu-blacklist.conf \
 ./etc/modprobe.d/rtl8188fu.conf \
 ./etc/mosdns/config.yaml \
 ./etc/mwan3.user \
