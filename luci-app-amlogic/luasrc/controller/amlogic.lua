@@ -79,9 +79,7 @@ end
 device_platfrom = trim(luci.sys.exec("cat /etc/lasthinker-openwrt-release 2>/dev/null | grep PLATFORM | awk -F'=' '{print $2}' | grep -oE '(amlogic)'")) or "Unknown PLATFORM"
 if (device_platfrom == "amlogic") then
 	device_install_script = "openwrt-install"
-elseif (device_platfrom == "amlogic") then
 	device_update_script = "openwrt-update"
-else
 	device_kernel_script = "openwrt-kernel"
 end
 
