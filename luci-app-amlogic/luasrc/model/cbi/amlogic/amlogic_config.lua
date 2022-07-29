@@ -24,9 +24,8 @@ o.anonymouse = true
 --1.Set OpenWrt Firmware Repository
 mydevice = o:option(DummyValue, "mydevice", translate("Current Device:"))
 mydevice.description = translate("If the current device shows (Unknown device), please report to github.")
-mydevice_platfrom = trim(luci.sys.exec("cat /etc/lasthinker-openwrt-release 2>/dev/null | grep PLATFORM | awk -F'=' '{print $2}' | grep -oE '(amlogic)'")) or "Unknown PLATFORM"
-mydevice_name = trim(luci.sys.exec("cat /proc/device-tree/model | tr -d \'\\000\'")) or "Unknown device"
-mydevice.default = mydevice_name .. " (" .. mydevice_platfrom .. ")"
+mydevice_platfrom = trim(luci.sys.exec("cat /etc/lasthinker-openwrt-release 2>/dev/null | grep PLATFORM | awk -F'=' '{print $2}' | grep -oE '(amlogic|rockchip|allwinner|qemu)'")) or "Unknown"
+mydevice.default = "PLATFORM: " .. mydevice_platfrom
 mydevice.rmempty = false
 
 --2.Set OpenWrt Firmware Repository
@@ -80,7 +79,7 @@ firmware_config.rmempty = false
 --8.Write bootloader
 write_bootloader = o:option(Flag, "amlogic_write_bootloader", translate("Auto write bootloader:"))
 write_bootloader.description = translate("[Recommended choice] Set whether to auto write bootloader during install and update OpenWrt.")
-write_bootloader.default = "1"
+write_bootloader.default = "0"
 write_bootloader.rmempty = false
 
 --9.Set the file system type of the shared partition

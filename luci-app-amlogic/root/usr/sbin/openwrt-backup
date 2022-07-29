@@ -5,7 +5,7 @@
 # Copyright (C) 2021 https://github.com/lasthinker/amlogic-s9xxx-openwrt
 #======================================================================
 
-VERSION="v1.2"
+VERSION="v1.3"
 ZSTD_LEVEL=6
 SNAPSHOT_PRESTR=".snapshots/"
 BACKUP_DIR="/.reserved"
@@ -84,8 +84,13 @@ BACKUP_LIST='./etc/AdGuardHome.yaml \
 if uname -a | grep 'lasthinker' >/dev/null 2>&1; then
     PLATFORM="amlogic"
 else
-    echo "Unknown platform, only support Amlogic with lasthinker kernel!"
-    exit 1
+    source /etc/lasthinker-openwrt-release
+    case $PLATFORM in 
+        amlogic|qemu-aarch64) : ;;
+	*) echo "Unknown platform, only support Amlogic with lasthinker kernel!"
+           exit 1
+	   ;;
+    esac
 fi
 
 backup() {
