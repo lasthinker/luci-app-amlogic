@@ -15,7 +15,7 @@ end
 b = Map("amlogic")
 b.title = translate("Plugin Settings")
 local des_content = translate("You can customize the github.com download repository of OpenWrt files and kernels in [Online Download Update].")
-local des_content = des_content .. "<br />" .. translate("Tips: The amlogic SoC (E.g: s905x) and mainline version of the kernel (E.g: 5.15) will automatically match the current openwrt firmware.")
+local des_content = des_content .. "<br />" .. translate("Tip: The same files as the current OpenWrt system's BOARD (such as S905X) and kernel (such as 5.4) will be downloaded.")
 b.description = des_content
 
 o = b:section(NamedSection, "config", "amlogic")
@@ -37,7 +37,7 @@ firmware_repo.rmempty = false
 --3.Set OpenWrt Releases's Tag Keywords
 firmware_tag = o:option(Value, "amlogic_firmware_tag", translate("Keywords of Tags in Releases:"))
 firmware_tag.description = translate("Set the keywords of Tags in Releases of github.com in [Online Download Update].")
-firmware_tag.default = "aml_lasthinker"
+firmware_tag.default = "lasthinker"
 firmware_tag.rmempty = false
 
 --4.Set OpenWrt Firmware Suffix
